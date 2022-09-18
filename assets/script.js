@@ -1,28 +1,8 @@
-var today = moment();
-$('#currentDay').text(today.format("dddd"));
+var today = moment("15:00","hh:mm");
+$('#currentDay').text(today.format("dddd" +" " + "MMM Do YY"));
 
-
-
-// var timeNine = moment('15:00','hh:mm');
-// var timeTen = moment('16:00','hh:mm');
 var items = ["", "", "", "", "", "", "", "", ""];
-
-
 var saveButtons = document.querySelectorAll('.saveBtn');
-saveButtons.forEach(function(saveButton) {
-    saveButton.addEventListener("click", function grabData() {
-        for (identify=0; identify<9; identify++) {
-        
-        var data = $('#' + identify).val();
-        
-        items[identify] = data
-        
-        }
-        
-        localStorage.setItem("agenda", JSON.stringify(items))
-        
-        })
-});
 
 
 
@@ -78,34 +58,39 @@ let timeComparison =
         before : moment('17:00','hh:mm'),
         after : moment('18:00','hh:mm'),
     }
-
-
-
-
-
-
 ]
-
-
 
 
 
 function color() {
 
 for (identify=0; identify<9;identify++) {
-    if (today.isAfter(timeComparison[identify].after) ) {
-    
-    $('#'+identify).addClass("past");
+    if (today.isSame(timeComparison[identify].before)) {
 
-
+        $('#' + identify).addClass("present");
+        
     }
     
+    else if (today.isSame(timeComparison[identify].after)) {
+
+        $('#'+identify).addClass("past");
+    
+        }
+
     else if (today.isBetween(timeComparison[identify].before,timeComparison[identify].after)) {
 
     $('#'+identify).addClass("present");
 
     }
     
+    else if (
+        
+        today.isAfter(timeComparison[identify].after) ) {
+    
+            $('#'+identify).addClass("past");
+        
+    }
+
     else {
 
         $('#'+identify).addClass("future");
@@ -123,67 +108,20 @@ for (identify=0; identify<9;identify++) {
 color();
 
 
-
-
-/* beforetime is always 9
-after time is after 10
-
-if today < before time, then color
-if today isbetween before time, then color
-else if, then color
-
-
-loop that grabs each unique before time and after time */
-
-
-
-
-
-
-/* 
-function pageReload () {
-
-    if (today.isBetween(timeNine, timeTen)) {
-
-   console.log("Yes");
-
-   $('#nine').addClass("present");
-
-    }
-
-   else  {
-    console.log("No");
-   }
-} */
-
-
-function storeItems() {
-    localStorage.setItem("agenda", JSON.stringify(items))
-}
-
-/* function grabItems() {
-    var items = JSON.parse(localStorage.getItem("agenda"))
-} */
-
-// pageReload()
-
-
-
-
-
-/* make either a HTML text connect with jquery, or use bootstrap to make a variable table */
-
-
-/* breakout is time, 8-5 w/ 1-hr lunch, middle action item for time, and save button */
-
-/* after the save, it will save to local storage so that it reloads after refresh on the page */
-/* save with either array, or with individual save states? */
-
-
-
-
-
-
+saveButtons.forEach(function(saveButton) {
+    saveButton.addEventListener("click", function grabData() {
+        for (identify=0; identify<9; identify++) {
+        
+        var data = $('#' + identify).val();
+        
+        items[identify] = data
+        
+        }
+        
+        localStorage.setItem("agenda", JSON.stringify(items))
+        
+        })
+});
 
 
 
