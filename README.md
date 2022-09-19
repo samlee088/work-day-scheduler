@@ -8,8 +8,11 @@ The main objective of this project was to create a simple day scheduler. The foc
 ## Installation
 
 This is a project that is available online via weblink.
+
 https://samlee088.github.io/work-day-scheduler/
+
 Additionally, the back-end coding is available for download through github.
+
 https://github.com/samlee088/work-day-scheduler
 
 
