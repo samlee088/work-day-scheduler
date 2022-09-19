@@ -22,7 +22,7 @@ In order to add an event to a block of time, a user can ‘click’ into a block
 In order to delete, or update an agenda item, the user must update in the block of time, and ‘click’ on the save button in order for the change to take effect. 
 
    
-    ![screenshot of the mainpage of the work day scheduler](assets/workday-scheduler-screenshot.png)
+![screenshot of the mainpage of the work day scheduler](assets/workday-scheduler-screenshot.png)
     
 
 ## Credits

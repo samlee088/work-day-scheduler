@@ -1,6 +1,6 @@
 
 // Variables section
-var today = moment();
+var today = moment("13:00","hh:mm");
 $('#currentDay').text(today.format("dddd" +" " + "MMM Do YY"));
 
 var items = ["", "", "", "", "", "", "", "", ""];
